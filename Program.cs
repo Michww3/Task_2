@@ -1,36 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Specialized;
 
-Dictionary<int, double> map = new Dictionary<int, double>();
-Dictionary<int, double> map2 = new Dictionary<int, double> { };
-
-SortedDictionary<int, double> sDic = new SortedDictionary<int, double>();
+var map = new Dictionary<int, double>();
+var map2 = new Dictionary<int, double> { };
 
 
-OrderedDictionary orderedDictionary = new OrderedDictionary();
-orderedDictionary.Add(23393, 110.23);
-orderedDictionary.Add(7646496, 123210.23);
-orderedDictionary.Add(9293, 239593);
+var valueIsExist = map.TryGetValue(1, out var value);
 
+var sDic = new SortedDictionary<int, double>();
+var  arrayValues = new int[1];
+var  arrayValues2 = new int[1];
+
+var orderedDictionary = new OrderedDictionary() { };
+{
+    orderedDictionary.Add(23393, 110.23);
+    orderedDictionary.Add(7646496, 123210.23);
+    orderedDictionary.Add(9293, 239593);
+}
 //
 
-OrdDicCompare compare = new OrdDicCompare();
-//int value = 10;
+var compare = new Collection();
+Console.WriteLine(compare.collection[1] == compare.collection[2]);
 
-//foreach (DictionaryEntry entry in orderedDictionary)
-//{
-//    bool key = (int)entry.Key == value;
-//    Console.WriteLine(key);
-//}
-//foreach (DictionaryEntry entry in orderedDictionary)
-//{
-//    Console.WriteLine(compare.Compare((int)entry.Key, value));
 //}
 IEnumerator<int> enumerator = compare.GetKeys();
-
-public class OrdDicCompare : IComparer<int>
+while (enumerator.MoveNext())
 {
-    public OrderedDictionary orderedDictionary3 = new OrderedDictionary
+    Console.WriteLine(enumerator.Current);
+}
+public class Collection : IComparer<int>
+{
+    //public OrdDicCompare(T collection)
+    //{
+
+    //}
+    public OrderedDictionary collection = new OrderedDictionary()
     {
         {234234,2323.20 },
         {5959,23929 },
@@ -41,7 +45,7 @@ public class OrdDicCompare : IComparer<int>
 
     public IEnumerator<int> GetKeys()
     {
-        foreach (DictionaryEntry entry in orderedDictionary3)
+        foreach (DictionaryEntry entry in collection)
         {
             yield return (int)entry.Key;
         }
